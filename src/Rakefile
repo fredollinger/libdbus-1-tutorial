@@ -1,0 +1,20 @@
+task :default => :build
+BUILDDIR="builddir"
+
+desc "build it"
+task :build => 'builddir' do
+    sh "cd #{BUILDDIR} && ninja"
+end
+
+task 'builddir' do
+    if not File.directory?(BUILDDIR) then
+        sh "mkdir #{BUILDDIR}"
+        sh "cd #{BUILDDIR}"
+	sh "../configure"
+    end
+end
+
+# test regular
+task :clean do
+    sh "rm -rf #{BUILDDIR}"
+end
