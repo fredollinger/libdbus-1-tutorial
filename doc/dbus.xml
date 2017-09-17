@@ -1,0 +1,94 @@
+<?xml version="1.0"?> <!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [ ]>
+<book xmlns:xi="http://www.w3.org/2001/XInclude" id="cpp_study_notes">
+<bookinfo>
+    <title>libdbus-1 Hello World</title>
+    <authorgroup>
+    <author>
+        <firstname>Frederick</firstname><surname>Ollinger</surname>
+        <contrib>Begin</contrib>
+    </author>
+    </authorgroup>
+
+    <revhistory>
+        <revision>
+            <revnumber>0.0.1</revnumber>
+            <date>2017-09-17</date>
+            <authorinitials>fko</authorinitials>
+            <revmark>Original Public Release</revmark>
+            <revdescription>Initial Version</revdescription>
+        </revision>
+    </revhistory>
+
+</bookinfo>
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" id="introduction_to_dbus">
+    <title>Introduction to DBUS</title>
+    <para> 
+	DBUS is a protocol in which two applications can communicate with one
+	another. In order to use it, you need to use some bindings which are
+	provided by a DBUS library. There are many such libraries, but the
+	first and simplest is dbus-1. This library has a reputation for being
+	difficult to use. It was meant as a reference implementation and as a
+	basis for easier bindings to build on.  
+    </para>
+
+    <para>
+	After having used a number of implementations of DBUS bindings, none of
+	them were easy for me. The python one might be an exception, but I have
+	not yet used that one. Thus, when I had a new project in C, I decided
+	to try the dbus-1 library. Since it's simple, it has the least number
+	of dependencies. Further, by getting as close to the original as
+	possible, I felt that I would learn more about DBUS.  
+    </para>
+
+    <para>
+	Both assumptions turned out to be true. The dbus-1 library has been
+	fairly simple to use, that is as simple as a complex protocol like DBUS
+	can be.  However, there were not many good tutorials out there, and
+	none of them were complete. Thus, I decided to write the simplest
+	possible protocol for using dbus-1.  
+    </para>
+
+    <para>
+	Since dbus-1 is in C, you are expected to know C and how to use
+	automake to compile simple programs. You also need the dbus-1 library
+	installed on a Unix/Linux based system.  
+    </para>
+</chapter>
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" id="preliminaries">
+    <title>Preliminaries</title>
+
+    <para> 
+	DBUS can be thought of a way of remotely calling functions. Instead of
+	calling a function on the same process, you can call functions on
+	different process. Just like regular function calls, you can send
+	parameters. However, in the case of DBUS, you are limited in what you
+	can send. The details of what can and can not be sent via DBUS is
+	beyond the scope of this document. We'll stick to bool, int, and
+	strings.
+    </para> 
+
+    <para> 
+	While we'll try to keep the terminology to a minimum, we will need to
+	explain a few DBUS terms. DBUS communication works bi-directionally.
+	Thus, to use a term like client/server is a bit confusing. To keep
+	things straight, we'll use the terms adaptor/proxy.  u
+    </para>
+
+    <para>
+        Adaptor servers incoming calls. Proxy, on the other hand, will send out going calls.
+    </para>
+
+</chapter>
+
+<chapter xmlns:xi="http://www.w3.org/2001/XInclude" id="adaptor">
+    <title>Adaptor</title>
+
+    <para>
+        To make an adaptor, we must first listen on DBUS. This is found in our function <function>dbus_init()</function>. 
+    </para>
+
+</chapter>
+
+</book>

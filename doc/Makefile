@@ -1,4 +1,4 @@
-BOOK=index
+BOOK=dbus
 
 all:
 	dblatex $(BOOK).xml
